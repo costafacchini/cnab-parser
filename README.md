@@ -14,7 +14,7 @@ Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normali
 - [ ] Git com commits bem descritos
 - [X] PostgreSQL
 - [X] RUBOCOP
-- [ ] RSPEC
+- [X] RSPEC
 - [ ] Simplecov para disponibilizar o code coverage
 - [X] Docker compose (Pontos extras se utilizar)
 - [ ] Readme file descrevendo bem o projeto e seu setup
@@ -59,6 +59,12 @@ $ bin/rails db:migrate
 ```bash
 # run rubocop
 $ bin/rubocop
+```
+
+## Run tests
+```bash
+# run rspec
+$ bundle exec rspec
 ```
 
 ## Start Project
