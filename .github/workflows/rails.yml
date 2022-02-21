@@ -23,7 +23,8 @@ jobs:
         ports:
           - 5432:5432
       env:
-        RAILS_ENV: 'test'
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -33,12 +34,24 @@ jobs:
       with:
         ruby-version: '3.0.3'
 
-    - name: Run Install
+    - name: Install dependent libraries
+      run: sudo apt-get install libpq-dev
+    - name: Bundle Install
       run: |
         bundle install
     - name: Setup database
       run: |
-        bundle exec rails db:create db:migrate
+        cp config/database.yml.github-actions config/database.yml
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+      env:
+        RAILS_ENV: test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
     - name: Run Tests (rspec)
       run: |
         bundle exec rspec
+      env:
+        RAILS_ENV: test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
