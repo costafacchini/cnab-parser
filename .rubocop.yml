@@ -1,0 +1,45 @@
+# You can find more information about RuboCop pending cops policy
+# https://docs.rubocop.org/rubocop/versioning.html#pending-cops
+#
+# These are the default options. The .rubocop.yml inherit and
+# override all the default options.
+# https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.0.3
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'node_modules/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  NewCops: enable
+
+# Do not enable this options. It's dangerous.
+# Some gems may be dependent of other ones to load correctly.
+Bundler/OrderedGems:
+  Enabled: false
+
+# I prefer this format instead of the rubocop's default
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never # default: always
+
+# I prefer this format instead of the rubocop's default
+Style/SymbolArray:
+  EnforcedStyle: brackets # default: percent
+
+Style/Documentation:
+  Enabled: false # default: true

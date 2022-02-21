@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
@@ -19,14 +19,18 @@ gem 'stimulus-rails'
 
 gem 'jbuilder'
 
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootsnap', require: false
 
 gem 'figaro', '~> 1.2.0'
 
+gem 'rubocop', '1.25.1', group: [:test, :development], require: false
+gem 'rubocop-performance', '1.13.2', group: [:test, :development], require: false
+gem 'rubocop-rails', '2.13.2', group: [:test, :development], require: false
+
 group :development, :test do
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
@@ -34,4 +38,3 @@ group :development do
 
   gem 'spring'
 end
-

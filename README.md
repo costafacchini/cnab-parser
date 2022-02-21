@@ -13,7 +13,7 @@ Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normali
 - [ ] Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
 - [ ] Git com commits bem descritos
 - [X] PostgreSQL
-- [ ] RUBOCOP
+- [X] RUBOCOP
 - [ ] RSPEC
 - [ ] Simplecov para disponibilizar o code coverage
 - [X] Docker compose (Pontos extras se utilizar)
@@ -53,6 +53,12 @@ $ docker-compose up -d
 $ bin/rails db:setup
 # run migrations
 $ bin/rails db:migrate
+```
+
+## Linter
+```bash
+# run rubocop
+$ bin/rubocop
 ```
 
 ## Start Project
