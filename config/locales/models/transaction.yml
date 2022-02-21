@@ -1,0 +1,14 @@
+pt-BR:
+  enum:
+    transaction:
+      kind:
+        none: Nenhuma
+        debit: Débito Entrada +
+        boleto: Boleto Saída -
+        financing: Financiamento Saída -
+        credit: Crédito Entrada +
+        loan: Recebimento Empréstimo Entrada +
+        bill: Vendas Entrada +
+        ted: Recebimento TED Entrada +
+        doc: Recebimento DOC Entrada +
+        rent: Aluguel	Saída

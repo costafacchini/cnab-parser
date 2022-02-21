@@ -1,0 +1,9 @@
+<div id="<%= dom_id transaction %>">
+  <tr>
+    <td><%= transaction.emitted_at %></td>
+    <td><%= transaction.value %></td>
+    <td><%= transaction.cpf %></td>
+    <td><%= transaction.card %></td>
+    <td><%= I18n.t("enum.transaction.kind.#{transaction.kind}") %></td>
+  </tr>
+</div>

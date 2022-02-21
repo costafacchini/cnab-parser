@@ -50,3 +50,6 @@ Style/Documentation:
 Metrics/BlockLength:
   Exclude:
    - 'spec/**/*.rb'
+
+RSpec/ExampleLength:
+  Max: 10
