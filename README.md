@@ -9,14 +9,14 @@ Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normali
 - [ ] Ter uma tela (via um formulário) para fazer o upload do arquivo (pontos extras se não usar um popular CSS Framework)
 - [ ] Interpretar ("parsear") o arquivo recebido, normalizar os dados, e salvar corretamente a informação em um banco de dados relacional, se atente as documentações que estão logo abaixo.
 - [ ] Exibir uma lista das operações importadas por lojas, e nesta lista deve conter um totalizador do saldo em conta
-- [ ] Ser escrita obrigatoriamente em Ruby 2.0+ e Rails 5+
+- [X] Ser escrita obrigatoriamente em Ruby 2.0+ e Rails 5+
 - [ ] Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
 - [ ] Git com commits bem descritos
-- [ ] PostgreSQL
+- [X] PostgreSQL
 - [ ] RUBOCOP
 - [ ] RSPEC
 - [ ] Simplecov para disponibilizar o code coverage
-- [ ] Docker compose (Pontos extras se utilizar)
+- [X] Docker compose (Pontos extras se utilizar)
 - [ ] Readme file descrevendo bem o projeto e seu setup
 - [ ] Incluir informação descrevendo como consumir o endpoint da API
 
@@ -43,6 +43,16 @@ $ asdf local ruby 3.0.3
 $ gem install bundler
 # run bundle to install gems
 $ bundle
+```
+
+## Database initialization
+```bash
+# turn on docker
+$ docker-compose up -d
+# setup database
+$ bin/rails db:setup
+# run migrations
+$ bin/rails db:migrate
 ```
 
 ## Start Project
