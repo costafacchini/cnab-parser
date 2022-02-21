@@ -44,3 +44,11 @@ $ gem install bundler
 # run bundle to install gems
 $ bundle
 ```
+
+## Start Project
+```bash
+# turn on docker
+$ docker-compose up -d
+# run rails server
+$ bin/rails server
+```
