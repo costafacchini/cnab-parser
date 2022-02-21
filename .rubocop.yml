@@ -53,3 +53,7 @@ Metrics/BlockLength:
 
 RSpec/ExampleLength:
   Max: 10
+
+# There are many false positive cases
+Lint/MissingSuper:
+  Enabled: false # default: pending, added: 0.89
