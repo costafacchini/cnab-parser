@@ -9,6 +9,21 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      env:
+        RAILS_ENV: 'test'
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -21,6 +36,9 @@ jobs:
     - name: Run Install
       run: |
         bundle install
+    - name: Setup database
+      run: |
+        bundle exec rails db:create db:migrate
     - name: Run Tests (rspec)
       run: |
         bundle exec rspec
