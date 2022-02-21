@@ -12,5 +12,6 @@ RSpec.describe 'stores/index', type: :view do
     render
     assert_select 'tr>td', text: 'Doe drinks'.to_s, count: 2
     assert_select 'tr>td', text: 'John Doe'.to_s, count: 2
+    assert_select 'tr>td', text: '0'.to_s, count: 2
   end
 end
