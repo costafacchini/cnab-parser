@@ -32,6 +32,8 @@ gem 'rubocop-rspec', '2.8.0', group: [:test, :development], require: false
 
 gem 'shoulda-matchers', '5.1.0', group: :test
 
+gem 'simplecov', '0.21.2', require: false, group: :test
+
 group :development, :test do
   gem 'debug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0.0'

@@ -15,7 +15,7 @@ Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normali
 - [X] PostgreSQL
 - [X] RUBOCOP
 - [X] RSPEC
-- [ ] Simplecov para disponibilizar o code coverage
+- [X] Simplecov para disponibilizar o code coverage
 - [X] Docker compose (Pontos extras se utilizar)
 - [ ] Readme file descrevendo bem o projeto e seu setup
 - [ ] Incluir informação descrevendo como consumir o endpoint da API
