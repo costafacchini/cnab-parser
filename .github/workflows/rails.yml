@@ -9,6 +9,20 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -18,9 +32,27 @@ jobs:
       with:
         ruby-version: '3.0.3'
 
-    - name: Run Install
+    - name: Install dependent libraries
+      run: sudo apt-get install libpq-dev
+    - name: Bundle Install
       run: |
         bundle install
+    - name: Rubocop
+      run: |
+        bundle exec rubocop
+    - name: Setup database
+      run: |
+        cp config/database.yml.github-actions config/database.yml
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+      env:
+        RAILS_ENV: test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
     - name: Run Tests (rspec)
       run: |
         bundle exec rspec
+      env:
+        RAILS_ENV: test
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
