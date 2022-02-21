@@ -63,6 +63,8 @@ $ bin/rubocop
 
 ## Run tests
 ```bash
+# turn on docker
+$ docker-compose up -d
 # run rspec
 $ bundle exec rspec
 ```
