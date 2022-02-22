@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :stores, only: :index
   resources :transactions, only: :index
+  resources :importations, only: [:new, :create]
 end

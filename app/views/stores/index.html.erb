@@ -2,6 +2,8 @@
 
 <h1>Stores</h1>
 
+<%= link_to 'Nova importação', new_importation_path %>
+
 <div id="stores">
   <% @stores.each do |store| %>
     <%= render store %>
