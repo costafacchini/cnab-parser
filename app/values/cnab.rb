@@ -1,4 +1,4 @@
-class Cnab400
+class Cnab
   def initialize(line)
     @line = line
   end

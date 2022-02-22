@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe ImportCnab400, type: :model do
-  let(:content) { File.read(Rails.root.join('spec/fixtures/files/cnab400.txt')) }
+RSpec.describe ImportCnab, type: :model do
+  let(:content) { File.read(Rails.root.join('spec/fixtures/files/cnab.txt')) }
 
   describe '#call' do
-    it 'imports the cnab400 stores' do
+    it 'imports the cnab stores' do
       expect { described_class.call(content) }.to change(Store, :count).by(3)
     end
 
-    it 'imports the cnab400 transactions' do
+    it 'imports the cnab transactions' do
       expect { described_class.call(content) }.to change(Transaction, :count).by(4)
     end
 
     # rubocop:disable RSpec/MultipleExpectations
-    it 'imports the cnab400 parsed data' do
+    it 'imports the cnab parsed data' do
       described_class.call(content)
       store = Store.first
       expect(store.owner).to eq('JOÃO MACEDO')
