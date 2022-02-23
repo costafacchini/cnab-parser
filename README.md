@@ -11,14 +11,18 @@ Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normali
 - [X] Exibir uma lista das operações importadas por lojas, e nesta lista deve conter um totalizador do saldo em conta
 - [X] Ser escrita obrigatoriamente em Ruby 2.0+ e Rails 5+
 - [X] Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
-- [ ] Git com commits bem descritos
+- [X] Git com commits bem descritos
 - [X] PostgreSQL
 - [X] RUBOCOP
 - [X] RSPEC
 - [X] Simplecov para disponibilizar o code coverage
 - [X] Docker compose (Pontos extras se utilizar)
-- [ ] Readme file descrevendo bem o projeto e seu setup
-- [ ] Incluir informação descrevendo como consumir o endpoint da API
+- [X] Readme file descrevendo bem o projeto e seu setup
+- [X] Incluir informação descrevendo como consumir o endpoint da API
+
+## Improvments
+
+- [ ] Layout of Store view
 
 ## Setup Ruby (only if you have not installed)
 
@@ -75,4 +79,29 @@ $ bundle exec rspec
 $ docker-compose up -d
 # run rails server
 $ bin/rails server
+```
+
+## How to use API to upload file
+
+To consume the API by sending the CNAB file you can copy the command below replacing the word path_to_file with the path to the file you want to send and paste in your bash.
+
+You can also import the command below into your favorite software. (Insomnia, Postman)
+
+```bash
+# run curl to send cnab file
+curl --request POST \
+  --url http://localhost:3000/importations.json \
+  --header 'Content-Type: multipart/form-data; boundary=---011000010111000001101001' \
+  --form 'importation[content]=@path_to_file'
+```
+
+## How to use API to read stores report
+
+To consume the API by read the store transactions you can copy the command below and paste in your bash.
+
+You can also import the command below into your favorite software. (Insomnia, Postman)
+
+```bash
+# run curl to send cnab file
+curl http://localhost:3000/stores.json
 ```
