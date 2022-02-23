@@ -1,6 +1,10 @@
 require 'simplecov'
 
-SimpleCov.start "rails" unless ENV["NO_COVERAGE"]
+SimpleCov.start 'rails' do
+  add_filter 'app/channels/application_cable/channel.rb'
+  add_filter 'app/channels/application_cable/connection.rb'
+  add_filter 'app/mailers/application_mailer.rb'
+end unless ENV["NO_COVERAGE"]
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
