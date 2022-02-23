@@ -23,6 +23,7 @@ Sua tarefa é criar uma interface web que aceite upload do arquivo CNAB, normali
 ## Improvments
 
 - [ ] Layout of Store view
+- [ ] Use hotwire and stimulus to refresh Store data
 
 ## Setup Ruby (only if you have not installed)
 
