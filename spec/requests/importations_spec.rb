@@ -18,13 +18,6 @@ RSpec.describe '/importations', type: :request do
   let(:valid_attributes) { { content: fixture_file_upload('spec/fixtures/files/cnab.txt', 'text/plain') } }
   let(:invalid_attributes) { { content: '' } }
 
-  describe 'GET /new' do
-    it 'renders a successful response' do
-      get new_importation_url
-      expect(response).to be_successful
-    end
-  end
-
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Importation' do

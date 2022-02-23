@@ -6,8 +6,8 @@ RSpec.describe ImportationsController, type: :routing do
       expect(get: '/importations').not_to route_to('importations#index')
     end
 
-    it 'routes to #new' do
-      expect(get: '/importations/new').to route_to('importations#new')
+    it 'does not routes to #new' do
+      expect(get: '/importations/new').not_to route_to('importations#new')
     end
 
     it 'does not routes to #show' do

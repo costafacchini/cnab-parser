@@ -1,8 +1,4 @@
 class ImportationsController < ApplicationController
-  def new
-    @importation = Importation.new
-  end
-
   def create
     @importation = Importation.new(importation_params)
     uploaded_file = params[:importation][:content]
@@ -15,7 +11,7 @@ class ImportationsController < ApplicationController
         format.html { redirect_to stores_path, notice: 'Importation was successfully created.' }
         format.json { render :nothing, status: :created }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to stores_path, notice: 'Importation was error.' }
         format.json { render json: @importation.errors, status: :unprocessable_entity }
       end
     end
