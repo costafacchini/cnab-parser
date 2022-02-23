@@ -1,4 +1,6 @@
 class ImportationsController < ApplicationController
+  protect_from_forgery with: :null_session
+
   def create
     @importation = Importation.new(importation_params)
     uploaded_file = params[:importation][:content]
@@ -9,7 +11,7 @@ class ImportationsController < ApplicationController
         ImportationJob.perform_later(@importation.id)
 
         format.html { redirect_to stores_path, notice: 'Importation was successfully created.' }
-        format.json { render :nothing, status: :created }
+        format.json { head :ok }
       else
         format.html { redirect_to stores_path, notice: 'Importation was error.' }
         format.json { render json: @importation.errors, status: :unprocessable_entity }
