@@ -1,9 +1,7 @@
-<div id="<%= dom_id transaction %>">
-  <tr>
-    <td><%= transaction.emitted_at %></td>
-    <td><%= I18n.t("enum.transaction.kind.#{transaction.kind}") %></td>
-    <td><%= transaction.cpf %></td>
-    <td><%= transaction.card %></td>
-    <td><%= transaction.value %></td>
-  </tr>
-</div>
+<tr>
+  <td><%= transaction.emitted_at.in_time_zone('America/Sao_Paulo').strftime("%d/%m/%Y %H:%M") %></td>
+  <td><%= I18n.t("enum.transaction.kind.#{transaction.kind}") %></td>
+  <td><%= transaction.cpf %></td>
+  <td><%= transaction.card %></td>
+  <td><%= number_to_currency(transaction.value, unit: 'R$', separator: ',', delimiter: '', negative_format: '%u-%n') %></td>
+</tr>

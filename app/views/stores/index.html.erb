@@ -5,12 +5,7 @@
 <div id="stores">
   <% @stores.each do |store| %>
     <%= render store %>
-    <%= render store.transactions %>
-    Saldo: <%= store.balance %>
-
   <% end %>
 </div>
-
-<br>
 
 <%= render "importations/form" %>

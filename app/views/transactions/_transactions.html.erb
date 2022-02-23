@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Data/Hora</th>
+      <th>Tipo</th>
+      <th>CPF</th>
+      <th>Cartão</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render transactions %>
+    <tr>
+      <td />
+      <td />
+      <td />
+      <td>Saldo</td>
+      <td><%= number_to_currency(balance, unit: 'R$', separator: ',', delimiter: '', negative_format: '%u-%n') %></td>
+    </tr>
+  </tbody>
+</table>
